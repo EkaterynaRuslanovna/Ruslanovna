@@ -7,6 +7,7 @@ import Task_4
 import Task_5
 import json
 import Task_6
+from Additional_task_with_operands import calculate
 
 
 if __name__ == '__main__':
@@ -40,6 +41,11 @@ if __name__ == '__main__':
         start = randint(-100, 100)
         end = randint(-100, 100)
         print(f"Сума чисел від {start} до {end} = {Task_6.sum_range(start, end)}")
+
+        print("---------------------------------------------Завдання 7---------------------------------------------")
+
+        formula = input("Введіть математичний вираз: ")
+        calculate(formula)
 
     except TypeError:
         print("ERROR: Функція повинна приймати необхідну кількість аргументів")
