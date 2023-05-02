@@ -2,18 +2,6 @@
 from re import search
 
 
-# def calculate(formula):
-#     try:
-#         if search(r'[()!@#$%^&_=|\\a-zA-Zа-яА-Я]', formula):
-#             raise SyntaxError(f"ERROR! Невірно введена формула, ви ввели {formula}")
-#         else:
-#             result = eval(formula)
-#         print(f"Результат обчислення {formula} = {result}")
-#         return result
-#     except SyntaxError as error:
-#         print(error)
-
-
 def calculate(formula):
     try:
         if search(r'[0-9][()!@#$%^&_=|\\a-zA-Zа-яА-Я][0-9]', formula):
