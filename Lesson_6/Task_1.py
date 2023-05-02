@@ -8,11 +8,10 @@ def is_the_number_an_exact_power_of_2(number: int):
     try:
         power = log2(number)
         if power.is_integer():
-            print(f"YES. Число {number} є точним ступенем двійки")
+            print("YES")
         else:
-            print(f"NO. Число {number} не є точним ступенем двійки")
+            print("NO")
     except TypeError:
-        print("ERROR: Функція приймає лише значення типу int, окрім 0")
+        print(f"ERROR! Функція is_the_number_an_exact_power_of_2 приймає лише значення типу int, ви ввели {type(number)}")
     except ValueError:
-        print("ERROR: Аргументом не може бути значення менше 1")
-
+        print(f"ERROR! Аргументом не може бути значення менше 1, ви ввели {number}")
