@@ -4,19 +4,24 @@ from re import search
 
 def calculate(formula):
     try:
-        if search(r'[0-9][()!@#$%^&_=|\\a-zA-Zа-яА-Я][0-9]', formula):
-            raise SyntaxError(f"ERROR! Невірний операнд, ви ввели {formula}")
-        elif search(r'[()!@#$%^&+\-/*_=|\\a-zA-Zа-яА-Я][+\-/*][()!@#$%^&_=|\\a-zA-Zа-яА-Я+\-/*]', formula):
-            raise SyntaxError(f"ERROR! Невірно введені аргументи формули, ви ввели {formula}")
-        elif search(r'[0-9][+\-/*][()!@#$%^&_=|\\a-zA-Zа-яА-Я+\-/*]', formula):
-            raise SyntaxError(f"ERROR! Невірно введений другий аргумент формули, ви ввели {formula}")
-        elif search(r'[()!@#$%^&_=|\\a-zA-Zа-яА-Я+\-/*][+\-/*][0-9]', formula):
-            raise SyntaxError(f"ERROR! Невірно введений перший аргумент формули, ви ввели {formula}")
-        elif search(r'[()!@#$%^&+\-/*_=|\\a-zA-Zа-яА-Я][()!@#$%^&+\-/*_=|\\a-zA-Zа-яА-Я][()!@#$%^&_=|\\a-zA-Zа-яА-Я+\-/*]', formula):
-            raise SyntaxError(f"ERROR! Невірно введена формула, ви ввели {formula}")
+        for item in formula:
+            if item in "+-*/":
+                operator = item
+                num1, num2 = formula.split(operator)
+                break
         else:
+            raise ValueError("Оператор не знайдений")
+        try:
+            num1 = float(num1)
+            num2 = float(num2)
             result = eval(formula)
-        print(f"Результат обчислення {formula} = {result}")
-        return result
-    except SyntaxError as error:
+            return result
+        except ValueError:
+            print(f"Невірно введені аргументи, ви ввели {num1} та {num2}")
+
+    except ZeroDivisionError:
+        print("Ділення на ноль неможливе")
+    except ValueError as error:
+        print(error)
+    except TypeError as error:
         print(error)
