@@ -111,33 +111,3 @@ class Record:
                 return birthday_datetime
             except ValueError:
                 raise ValueError("Невірний формат. Введіть дату в форматі DD.MM.YY")
-
-# r = Record(name="hjhh-kjhj", mobile_phone="8768768765", surname="jhgky-kjnuh", birthday="30.05.94")
-# print(r.name)
-# r.name = "hjh"
-# print(r.name)
-# print(r.mobile_phone)
-# r.mobile_phone = "5551346234"
-# print(r.mobile_phone)
-# print(r.surname)
-# r.surname = "Dosdce"
-# print(r.surname)
-# print(r.birthday)
-# r.birthday = "30.05.96"
-# print(r.birthday)
-#
-# с = Record(name="hjhh-kjhj", mobile_phone="8768658765", birthday="30.05.94")
-# print(с.name)
-# с.name = "Doe"
-# print(с.name)
-# print(с.mobile_phone)
-# с.mobile_phone = "5551346234"
-# print(с.mobile_phone)
-# print(с.surname)
-# с.surname = "Dosdce"
-# print(с.surname)
-# print(с.birthday)
-# с.birthday = "30.05.96"
-# print(с.birthday)
-# print(с.to_dict())
-
