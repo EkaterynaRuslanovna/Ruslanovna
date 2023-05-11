@@ -33,6 +33,8 @@ class Interface:
             print('Імʼя є обовʼязковим.')
             name = input('Введіть імʼя: ')
         mobile_phone = input('Введіть мобільний номер телефону: ')
+        if self.phonebook.find_record_by_mobile_phone(mobile_phone):
+            raise Exception('Запис з таким номером вже існує.')
         while not mobile_phone:
             print('Мобільний номер телефону є обовʼязковим.')
             mobile_phone = input('Введіть мобільний номер телефону: ')
@@ -78,7 +80,6 @@ class Interface:
             command = input('Введіть, які дані ви хочете оновити (1 - name, 2 - surname, 3 - mobile_phone, 4 - birthday): ')
             if command == "1":
                 new_name = input('Введіть імʼя, на яке хочете змінити: ')
-
                 return self.phonebook.update_record(mobile_phone=mobile_phone, new_name=new_name)
             elif command == "2":
                 new_surname = input('Введіть фамілію, на яку хочете змінити: ')
