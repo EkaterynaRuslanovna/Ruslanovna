@@ -12,7 +12,7 @@ if __name__ == '__main__':
     name_of_file = "group_people.json"
     current_directory = os.getcwd()
 
-    file_path = Task_1.searching_file(name_of_file)
+    file_path = Task_1.searching_file(name_of_file, current_directory)
     file_path = Task_1.convert_to_true_path(file_path)
 
     os.chdir(file_path)
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     name_of_file = "manager_sales.json"
     current_directory = os.getcwd()
 
-    file_path = Task_1.searching_file(name_of_file)
+    file_path = Task_1.searching_file(name_of_file, current_directory)
     file_path = Task_1.convert_to_true_path(file_path)
 
     os.chdir(file_path)
