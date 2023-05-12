@@ -43,7 +43,7 @@ class Record:
     @staticmethod
     def validate_name(name=None):
         if name:
-            if name == "Пожарна служба" or name == "Поліція" or name == "Швидка допомога" or name == "Газова служба":
+            if name in ["Пожарна служба", "Поліція", "Швидка допомога", "Газова служба"]:
                 return name
             if not re.match(r'^[A-Za-zА-Яа-яїєҐґ][А-Яа-яїєҐґA-Za-z- ]*$', name):
                 raise ValueError(f"Імʼя може містити лише букви, пробіл та дефіс. Ви ввели {name}")
@@ -72,7 +72,7 @@ class Record:
     @mobile_phone.setter
     def mobile_phone(self, mobile_phone: str):
         self.validate_mobile_phone(mobile_phone)
-        if mobile_phone != "101" or mobile_phone != "102" or mobile_phone != "103" or mobile_phone != "104":
+        if not 101 <= int(mobile_phone) <= 104:
             self.__mobile_phone = mobile_phone
         else:
             raise Exception("Екстренні контакти не дозволено редагувати!")
@@ -82,7 +82,7 @@ class Record:
         if mobile_phone:
             if not mobile_phone.isdigit():
                 raise ValueError(f"Телефон має містити лише цифри, ви ввели {mobile_phone}")
-            if mobile_phone == "101" or mobile_phone == "102" or mobile_phone == "103" or mobile_phone == "104":
+            if 101 <= int(mobile_phone) <= 104:
                 return mobile_phone
             if len(mobile_phone) != 10:
                 raise ValueError(f"Телефон має містити 10 цифр, ви ввели {len(mobile_phone)}")

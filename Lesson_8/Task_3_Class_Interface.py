@@ -10,7 +10,7 @@ class Interface:
         print('Вітаємо! В нас знайдеться все:)')
         while True:
             try:
-                command = input('Оберіть опцію (1 - додати контакт, 2 - змінити контакт, 3 - знайти контакт, 4 - показати всі контакти, 5 - Вихід): ')
+                command = input('Оберіть опцію (1 - додати контакт, 2 - змінити контакт, 3 - знайти контакт, 4 - показати всі контакти, 5 - видалити контакт, 6 - вихід): ')
                 if command == "1":
                     self.add_record()
                 elif command == "2":
@@ -20,6 +20,8 @@ class Interface:
                 elif command == "4":
                     self.phonebook.view_all_records()
                 elif command == "5":
+                    self.delete_contact()
+                elif command == "6":
                     print("Дякуємо, що обрали нас! До зустрічі:)")
                     break
                 else:
@@ -75,7 +77,7 @@ class Interface:
     def update_data(self):
         try:
             mobile_phone = input('Введіть мобільний номер телефону: ')
-            if mobile_phone == "101" or mobile_phone == "102" or mobile_phone == "103" or mobile_phone == "104":
+            if 101 <= int(mobile_phone) <= 104:
                 raise Exception("Екстренні контакти не дозволено редагувати!")
             command = input('Введіть, які дані ви хочете оновити (1 - name, 2 - surname, 3 - mobile_phone, 4 - birthday): ')
             if command == "1":
@@ -95,8 +97,17 @@ class Interface:
         except Exception as error:
             print(error)
 
+    def delete_contact(self):
+        try:
+            mobile_phone = input('Введіть мобільний номер телефону, який хочете видалити: ')
+            if mobile_phone:
+                self.phonebook.delete_record(mobile_phone)
+            print("Контакт видалено.")
+        except Exception as error:
+            print(error)
+
     @staticmethod
     def show_founded(records):
         for record in records:
             print(
-                f"Name: {record.name}, Surname: {record.surname}, Mobile Phone: {record.mobile_phone}, Birthday: {record.birthday}")
+                f"Імʼя: {record.name}, Фамілія: {record.surname}, Номер телефону: {record.mobile_phone}, Дата народження: {record.birthday}")
