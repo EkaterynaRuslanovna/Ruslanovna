@@ -1,4 +1,4 @@
-from Task_3_Class_Record import Record
+from task_3_class_record import Record
 
 
 class Phonebook:

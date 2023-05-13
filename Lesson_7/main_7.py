@@ -1,9 +1,9 @@
 import os
-from Task_1 import searching_file
-from Task_1 import create_file_with_converting_salaries
-from Task_1 import convert_to_true_path
-from Task_2_Version_1_ import read_exclude_paths
-from Task_2_Version_1_ import count_folders_and_files
+from task_1 import searching_file
+from task_1 import create_file_with_converting_salaries
+from task_1 import convert_to_true_path
+from task_2_Version_1_ import read_exclude_paths
+from task_2_Version_1_ import count_folders_and_files
 
 if __name__ == '__main__':
     print("---------------------------------------------Завдання 1---------------------------------------------")

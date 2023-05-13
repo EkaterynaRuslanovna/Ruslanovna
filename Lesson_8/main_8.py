@@ -1,10 +1,10 @@
-from Task_1 import ComplexNumber
-from Task_2 import Point
-from Task_2 import Triangle
-from Task_2 import Square
-from Task_3_Class_Record import Record
-from Task_3_Class_PhoneBook import Phonebook
-from Task_3_Class_Interface import Interface
+from task_1 import ComplexNumber
+from task_2 import Point
+from task_2 import Triangle
+from task_2 import Square
+from task_3_class_record import Record
+from task_3_class_phoneBook import Phonebook
+from task_3_class_interface import Interface
 
 if __name__ == '__main__':
     print("---------------------------------------------Завдання 1---------------------------------------------")

@@ -1,5 +1,5 @@
-from Task_3_Class_PhoneBook import Phonebook
-from Task_3_Class_Record import Record
+from task_3_class_phoneBook import Phonebook
+from task_3_class_record import Record
 
 
 class Interface:

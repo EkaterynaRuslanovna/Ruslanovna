@@ -1,5 +1,5 @@
 import unittest
-from Task_3_Class_PhoneBook import Phonebook, Record
+from task_3_class_phoneBook import Phonebook, Record
 
 
 class TestPhonebook(unittest.TestCase):

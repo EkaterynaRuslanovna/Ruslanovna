@@ -1,13 +1,13 @@
 from random import randint
-import Task_1
-import Task_2
-import Task_3
-from Generate_random_list_with_different_types import generate_random_list_with_different_types
-import Task_4
-import Task_5
+import task_1
+import task_2
+import task_3
+from generate_random_list_with_different_types import generate_random_list_with_different_types
+import task_4
+import task_5
 import json
-import Task_6
-from Additional_task_with_operands import calculate
+import task_6
+from additional_task_with_operands import calculate
 
 
 if __name__ == '__main__':

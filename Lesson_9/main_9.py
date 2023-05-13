@@ -1,5 +1,5 @@
-from Task_1 import find_droup
-from Task_2 import find_manager
+from task_1 import find_droup
+from task_2 import find_manager
 
 
 if __name__ == '__main__':
