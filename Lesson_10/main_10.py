@@ -13,6 +13,6 @@ if __name__ == '__main__':
 
     try:
         args_kwargs(1, 2, 3, 4, c=5, d=6)
-        concatinate_args_kwargs("Vadym,", "phone - ", 380939157605, "@mastaforka", day=16, month="July")
+        concatinate_args_kwargs("Vadym,", "phone -", 380939157605, "@mastaforka", day=16, month="July")
     except Exception as error:
         print(error)

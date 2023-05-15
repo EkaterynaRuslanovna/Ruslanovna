@@ -1,22 +1,29 @@
+import datetime
+
 # Створити декоратор який кожен раз буде записувати у файл результат роботи якоїсь функції після її виклику
 # (наприклад функція яка прораховує суму всіх переданих аргументів *args).
 # Запис в файл формату ""Function launched at {час запуску} with result {результат роботи функції}
 
+
 def result_decorator(func):
     def wrapper(*args, **kwargs):
+        start = datetime.datetime.now()
         result = func(*args, **kwargs)
         total = sum(args) + sum(kwargs.values())
         with open("func_results.txt", "a") as file:
-            file.write(f"Сума всіх аргументів функції: {str(total)}\n")
+            file.write(f"Функція {func.__name__} була запущена о {start} з результатом {total}\n")
+        print("Результати записано у файл func_results.txt")
         return result
     return wrapper
 
 
 def write_results_decorator(func):
     def wrapper(*args, **kwargs):
+        start = datetime.datetime.now()
         result = func(*args, **kwargs)
         with open("write_results.txt", "a") as file:
-            file.write(f"Результат виконання функції {func.__name__}: {result} \n")
+            file.write(f"Функція {func.__name__} була запущена о {start}. \nРезультат виконання функції: {result} \n")
+        print("Результати записано у файл write_results.txt")
         return result
     return wrapper
 
