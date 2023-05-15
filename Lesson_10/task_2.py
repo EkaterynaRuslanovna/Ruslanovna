@@ -10,7 +10,7 @@ def result_decorator(func):
         start = datetime.datetime.now()
         result = func(*args, **kwargs)
         total = sum(args) + sum(kwargs.values())
-        with open("func_results.txt", "a") as file:
+        with open("func_results.txt", "a", encoding="utf-8") as file:
             file.write(f"Функція {func.__name__} була запущена о {start} з результатом {total}\n")
         print("Результати записано у файл func_results.txt")
         return result
@@ -21,7 +21,7 @@ def write_results_decorator(func):
     def wrapper(*args, **kwargs):
         start = datetime.datetime.now()
         result = func(*args, **kwargs)
-        with open("write_results.txt", "a") as file:
+        with open("write_results.txt", "a", encoding="utf-8") as file:
             file.write(f"Функція {func.__name__} була запущена о {start}. \nРезультат виконання функції: {result} \n")
         print("Результати записано у файл write_results.txt")
         return result
