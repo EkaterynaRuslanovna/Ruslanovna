@@ -35,12 +35,12 @@ class Human:
 
     def earn_money(self, salary: int = 1000):
         self._money += salary
-        print(f"Ви отримали зарплату у розмірі {salary}.")
+        print(f"Ви отримали зарплату у розмірі {salary}$.")
 
     def buy_house(self, house: House, discount: int = 0):
         final_price = house.final_price(discount)
         if self._money >= final_price:
             self._make_deal(house, final_price)
-            print(f"Вітаємо, ви успішно придбали будинок! На вашому рахунку залишилось {self._money}")
+            print(f"Вітаємо, ви успішно придбали будинок! На вашому рахунку залишилось {self._money}$")
         else:
             print(f"Недостатньо грошей! На вашому рахунку {self._money}$")
