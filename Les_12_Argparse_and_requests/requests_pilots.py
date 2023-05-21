@@ -23,10 +23,11 @@ import requests
 import json
 
 url = "https://swapi.dev/api/"
+params = {"search": "Millennium"}
 
 
 def get_millennium_falcon():
-    response = requests.get(url + "starships/?search=Millennium")
+    response = requests.get(url + "starships/", params=params)
     if response.status_code == 200:
         data = response.json()
         if data['count'] == 1:
@@ -80,7 +81,7 @@ def millennium_falcon_json(ship_info: dict):
             print("\tРідна планета:", pilot['Рідна планета']['Назва'])
             print("\tПосилання на інформацію про рідну планету:", pilot['Посилання на інформацію про рідну планету'],"\n")
 
-        with open('millennium_falcon.json', 'w', encoding="utf-8") as json_file:
+        with open('../Les_12_Argparse_and_requests/millennium_falcon.json', 'w', encoding="utf-8") as json_file:
             json.dump(ship_info, json_file, indent=4, ensure_ascii=False)
         print("Інформація успішно записала у файл 'millennium_falcon.json'.")
     else:
