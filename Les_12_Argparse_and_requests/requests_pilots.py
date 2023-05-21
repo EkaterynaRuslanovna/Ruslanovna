@@ -23,11 +23,12 @@ import requests
 import json
 
 url = "https://swapi.dev/api/"
+endpoint = "starships/"
 params = {"search": "Millennium"}
 
 
 def get_millennium_falcon():
-    response = requests.get(url + "starships/", params=params)
+    response = requests.get(url + endpoint, params=params)
     if response.status_code == 200:
         data = response.json()
         if data['count'] == 1:
