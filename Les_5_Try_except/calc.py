@@ -34,17 +34,4 @@ def calc(x, operator, y):
     print(f"Результат обчислення {x} {operator} {y} = {result}")
 
 
-try:
-    formula = (input("Введіть формулу для розрахунку: ")).split()
-    if len(formula) != 3:
-        raise FormulaError(f"FormulaError: Невірна кількість елементів. Ви ввели {len(formula)} елементи. Введіть 3 елементи.")
 
-    try:
-        x, operator, y = formula
-        x = float(x)
-        y = float(y)
-        calc(x, operator, y)
-    except ValueError:
-        raise FormulaError("FormulaError: Некоректні вхідні дані!")
-except FormulaError as error:
-    print(error)

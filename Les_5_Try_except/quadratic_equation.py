@@ -10,8 +10,7 @@ class DiscriminantError(Exception):
     pass
 
 
-try:
-    a, b, c = float(input("Введіть значення a: ")), float(input("Введіть значення b: ")), float(input("Введіть значення c: "))
+def calculate_quadratic_equation(a, b, c):
     D = b ** 2 - 4 * a * c
 
     if D < 0:
@@ -19,12 +18,9 @@ try:
     elif D == 0:
         x = (- b) / 2 * a
         print(f"Корінь рівняння х = {x}")
+        return x
     else:
         x1 = ((- b) + D ** 0.5) / 2 * a
         x2 = ((- b) - D ** 0.5) / 2 * a
         print(f"Корінь рівняння х1 = {x1}, корінь рівняння х2 = {x2}")
-
-except ValueError as error:
-    print("Введіть числове значення!")
-except DiscriminantError as error:
-    print(error)
+        return x1, x2
