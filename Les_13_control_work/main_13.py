@@ -10,18 +10,22 @@ python main.py -url www.google.com
 
 """
 import json
+import urllib.parse
 from Les_13_control_work.argparse_web import args
-from Les_13_control_work.parse_html import parse_html, validate_links
+from Les_13_control_work.html_links import parse_html, get_response, save_to_file, main
+
+
+def is_valid_url(url: str):
+    parsed_url = urllib.parse.urlparse(url)
+    return all([parsed_url.scheme, parsed_url.netloc])
+
 
 if __name__ == "__main__":
     url = args.url or input("Введіть посилання, наприклад: 'https://www.google.com': ")
+    while not is_valid_url(url):
+        url = args.url or input("Введене послилання невалідне, спробуйте запис наприклад: 'https://www.google.com': ")
     endpoint = args.endpoint or input("Введіть ендпоінт, наприклад: '/search': ")
     params_input = args.params or input("Введіть параметр, наприклад: {\"q\": \"Hillel\"} (JSON format): ")
     params = json.loads(params_input) if params_input else {}
 
-    links = parse_html(url, endpoint, params)
-    validate_links(links, url)
-
-
-
-
+    main(url, endpoint, params)
